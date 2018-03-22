@@ -9,7 +9,7 @@ And use them to make my new personal webpage. By the way as a practice.
  * less
  * webpack
 
-## node packages
+## node modules
  * express 4.16.3
 
-Notice! This project does not include node_modules
+Notice! This repository does not include node_modules

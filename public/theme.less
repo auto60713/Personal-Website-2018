@@ -4,7 +4,7 @@
 }
 
 @title-color: #4CB6C8;
-@main-width: 500px;
+@menu-size: 15px;
 
 .main-font-family{
     font-family: Regular, serif;
@@ -13,53 +13,67 @@
     border: 0px;
     border-bottom: 1px solid #CDCDCD;
 }
+.main-specification{
+    width: 550px;
+    margin-left: 24%;
+}
 
 //   ex-class =======================================
 
-
+body{
+  padding: 0;
+  margin: 0;
+}
 .page-body{
 
-    width: 800px;
-    margin-left: 20%;
-    padding-bottom: 20px;
-}   
-
+  margin-bottom: 40px; 
+}
+.menu_box{
+  position: fixed;
+  padding: 0 @menu-size;
+  margin-top: 10%; 
+  background-color: #474747;
+}
 .menu{
-margin: 0;
+
+margin-top: 0;
+margin-bottom: 0;
 padding: 0;
+/*與li margin-bottom配合*/
+padding-top: @menu-size;
 
     li{
-    display: inline;
-    margin-right: 20px;
+    list-style-type: none;
+    margin-bottom: @menu-size; 
         a{
         text-decoration: none;
-        color: #404040;
+        color: #FFFFFF;
         }
         a:hover{
-        color: #B3B3B3;
+        border-bottom: 1px solid #FFFFFF;
         }
     }
 }
 
 
 .title{
-
+    .main-specification;
     .main-font-family;
     color: @title-color;
 }
 
 .profile_box{
+.main-specification;
 
-width: @main-width;
 border-collapse: collapse;
 
     td{
 
-	.main-font-family;
+  	.main-font-family;
     .the-line;
 
-	margin: 0px;
-	padding: 7px;
+  	margin: 0px;
+  	padding: 7px;
     vertical-align: top;
     text-align: left;
 
@@ -68,8 +82,7 @@ border-collapse: collapse;
 }
 
 .projects_box{
-
-width: @main-width;
+.main-specification;
 
   div{
     

@@ -2,14 +2,24 @@
      "projects": 
      [
          {
-           "name": "個人網站2014",
-           "depiction": "使用canvas背景",
-           "url": "https://www.google.com.tw/"
+           "name": "長榮大學職涯網",
+           "depiction": "當初長榮大學的職涯發展組需要一個可以讓學生媒合企業的平台，於是邀請資管系學生幫忙建構網站，網站的規模為資訊系統，具有申請會員、學號第三方登入、上傳工作機會、學生應徵工作、工讀單產生..等功能，使用MS SQL資料庫。",
+           "url": "http://careerweb.cjcu.edu.tw/"
          },
          {
-           "name": "個人網站2015",
-           "depiction": "使用影片當背景",
-           "url": "https://www.google.com.tw/"
+           "name": "逢甲大學 多媒體暨網路安全實驗室",
+           "depiction": "逢甲大學多媒體暨網路安全實驗室的網站，內容為歷屆學生論文上傳、學生論文報告簡報、教授演講簡報..等教學資源，並與張講座個人網站共同經營。",
+           "url": "http://msn.iecs.fcu.edu.tw/"
+         },
+         {
+           "name": "Ozen's personal website (2014)",
+           "depiction": "I learned many popular web technologies in 2014. And want to build a personal web page, So did this work. At the time it was using the 'Auto' nickname, And founded the 'Autoplay' brand.",
+           "url": "https://github.com/auto60713/myself_web2014"
+         },
+         {
+           "name": "Ozen's personal website (2015)",
+           "depiction": "I remade my personal webpage in 2015. I liked listening to EDM at that time and knew Steve Aoki. Use his film in tomorrowland as the theme of the web.",
+           "url": "https://github.com/auto60713/myself_web2015"
          }
      ]
 }

@@ -9,6 +9,8 @@ let p_tools;
 let projects;
 let projects_set = [];
 
+
+
 class PersonList extends React.Component {
 
   //保留變數state, 每當state改變, DOM會被重繪
@@ -57,17 +59,23 @@ class PersonList extends React.Component {
         self.setState({ trigger:1 });
     }));
 
+
   } //componentDidMount end
+
+
 
   //主架構
   render() {
 
     return (
       <div className="page-body">
-      <ul className="menu">
-        <li><a href="#profile">Profile</a></li>
-        <li><a href="#projects">Projects</a></li>
-      </ul>
+      <div className="menu_box">
+         <ul className="menu">
+           <li><a href="#profile">Profile</a></li>
+           <li><a href="#projects">Works</a></li>
+         </ul>
+      </div>
+     
       <h1 className="title">Profile</h1>    
       <table className="profile_box">
         <tbody>
@@ -80,7 +88,8 @@ class PersonList extends React.Component {
           <ProfileCom left="Tools" right={p_tools}/>
         </tbody>
       </table>
-      <h1 className="title">Projects</h1>
+
+      <h1 className="title">Works</h1>
       <div className="projects_box">
           {projects_set}
       </div>
