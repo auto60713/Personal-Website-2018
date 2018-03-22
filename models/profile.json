@@ -1,0 +1,34 @@
+{
+    "c_name": "林佳隆",
+    "e_name": "Ozen",
+    "age": 25,
+    "mail": "komicabot@gmail.com",
+    "skills": [
+        "網頁前端設計",
+        "網頁應用開發",
+        "MVC開發",
+        "RWD設計",
+        "UI/UX設計",
+        "資料庫維護管理",
+        "資訊安全"
+    ],
+    "language": [
+    	"HTML",
+        "JavaScript (ES6)",
+        "CSS",
+        "php",
+        "SQL"
+    ],
+    "libraries": [
+        "React.js + Babel",
+        "node.js",
+        "less",
+        "jQuery"
+    ],
+    "tools": [
+        "GitHub",
+        "webpack",
+        "MySQL",
+        "MS SQL"
+    ]
+}

@@ -1,0 +1,96 @@
+@font-face {
+  font-family: Regular;
+  src: url(font/AbhayaLibre-SemiBold.ttf);
+}
+
+@title-color: #4CB6C8;
+@main-width: 500px;
+
+.main-font-family{
+    font-family: Regular, serif;
+}
+.the-line{
+    border: 0px;
+    border-bottom: 1px solid #CDCDCD;
+}
+
+//   ex-class =======================================
+
+
+.page-body{
+
+    width: 800px;
+    margin-left: 20%;
+    padding-bottom: 20px;
+}   
+
+.menu{
+margin: 0;
+padding: 0;
+
+    li{
+    display: inline;
+    margin-right: 20px;
+        a{
+        text-decoration: none;
+        color: #404040;
+        }
+        a:hover{
+        color: #B3B3B3;
+        }
+    }
+}
+
+
+.title{
+
+    .main-font-family;
+    color: @title-color;
+}
+
+.profile_box{
+
+width: @main-width;
+border-collapse: collapse;
+
+    td{
+
+	.main-font-family;
+    .the-line;
+
+	margin: 0px;
+	padding: 7px;
+    vertical-align: top;
+    text-align: left;
+
+
+    }
+}
+
+.projects_box{
+
+width: @main-width;
+
+  div{
+    
+    .main-font-family;
+    .the-line;
+
+    margin-bottom: 20px; 
+  }
+  a{
+    text-decoration: none;
+    color: #0366D6;
+    font-weight: bold; 
+    font-size: 1.1em;
+  }
+  a:hover{
+    text-decoration: underline;
+  }
+  p{
+    font-size: 0.9em;
+    margin: 10px 0;
+  }
+}
+
+
