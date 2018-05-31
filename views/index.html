@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>HTML-AudioPlayer</title>
+	<title>Autoplay 2018</title>
+    <link rel="SHORTCUT ICON" href="img/main.ico"/>
 	<link rel="stylesheet/less" type="text/css" href="theme.less" />
     <link rel="stylesheet/less" type="text/css" href="cont.less" />
     <script src="lib/less.min.js"></script>
@@ -20,12 +21,14 @@
 <script type="text/babel" src="main.jsx"></script>
 
 <div id="head"></div>
+<div id="MenuSelector"></div>
 <ul class="menu">
     <li><a href="#home">Home</a></li>
     <li><a href="#foreword">Foreword</a></li>
 	<li><a href="#profile">Profile</a></li>
     <li><a href="#works">Works</a></li>
     <li><a href="#copyright">Copyright</a></li>
+    <li><a class="AudioBt">Audio</a></li>
 </ul>
 
 <h1 id="PageTitle"></h1>
@@ -40,15 +43,38 @@ $(document).ready(function(){
 const song = document.getElementById('audioElement');
       song.play();
 
+    $( ".AudioBt" ).click(function() {
+        if(song.paused) song.play();
+        else song.pause();
+    });
+
+
+
 $('#root').scroll(function (event) {
     let scroll = $('#root').scrollTop();
+    let MenuSelectorStart = 220;
 
-    if(scroll >= 0 && scroll < 300) $('#PageTitle').text('');
-    else if(scroll >= 500 && scroll < 1000) $('#PageTitle').text('Foreword');
-    else if(scroll >= 1200 && scroll < 1900) $('#PageTitle').text('Profile');
-    else if(scroll >= 2100 && scroll < 3000) $('#PageTitle').text('Works');
-    else if(scroll >= 2100 && scroll < 3000) $('#PageTitle').text('Copyright');
-    //console.log(scroll);
+    if(scroll >= 0 && scroll < 300){
+        $('#PageTitle').text('');
+        $("#MenuSelector").css("top", MenuSelectorStart );
+    } 
+    else if(scroll >= 500 && scroll < 1000) {
+        $('#PageTitle').text('Foreword');
+        $("#MenuSelector").css("top", MenuSelectorStart+40 );
+    }
+    else if(scroll >= 1200 && scroll < 1900) {
+        $('#PageTitle').text('Profile');
+        $("#MenuSelector").css("top", MenuSelectorStart+80 );
+    }
+    else if(scroll >= 2100 && scroll < 2800) {
+        $('#PageTitle').text('Works');
+        $("#MenuSelector").css("top", MenuSelectorStart+120 );
+    }
+    else if(scroll >= 2800 && scroll < 4000) {
+        $('#PageTitle').text('Copyright');
+        $("#MenuSelector").css("top", MenuSelectorStart+160 );
+    }
+
 });
 
 });
