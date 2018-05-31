@@ -11,7 +11,7 @@ body{
     background-color: black;
 }
 
-
+@theme-color: #5FC89B;
 
 /* pc */
 @media screen and (min-width: 769px) {
@@ -44,10 +44,10 @@ body{
 
 #root{
     position: fixed;
-    width: 82vw;
-    padding-right: 18vw;
-    padding-left: 20px;
     height: 100vh;
+    width: 75vw;
+    padding-right: 30vw;
+
     overflow-y: scroll;
     color: white;
 }
@@ -79,11 +79,12 @@ body{
 }
 #MenuSelector{
     position: fixed;
+    display: none;
     right: 0;
     width: 180px;
     height: 40px;
-    background-color: red;
-    transition: top 0.6s;
+    background-color: @theme-color;
+    transition: bottom 0.6s;
 }
 #PageTitle{
     position: fixed;

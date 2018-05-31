@@ -48,34 +48,42 @@ const song = document.getElementById('audioElement');
         else song.pause();
     });
 
+let MenuSelectorHide = true;
+
 
 
 $('#root').scroll(function (event) {
     let scroll = $('#root').scrollTop();
-    let MenuSelectorStart = 220;
+    let MenuSelectorStart = $( window ).height()/4;
 
-    if(scroll >= 0 && scroll < 300){
+    if(scroll >= 0 && scroll < 500){
         $('#PageTitle').text('');
-        $("#MenuSelector").css("top", MenuSelectorStart );
+        $("#MenuSelector").css("bottom", MenuSelectorStart+200 );
     } 
-    else if(scroll >= 500 && scroll < 1000) {
+    else if(scroll >= 500 && scroll < 1200) {
         $('#PageTitle').text('Foreword');
-        $("#MenuSelector").css("top", MenuSelectorStart+40 );
+        $("#MenuSelector").css("bottom", MenuSelectorStart+160 );
     }
-    else if(scroll >= 1200 && scroll < 1900) {
+    else if(scroll >= 1200 && scroll < 2100) {
         $('#PageTitle').text('Profile');
-        $("#MenuSelector").css("top", MenuSelectorStart+80 );
+        $("#MenuSelector").css("bottom", MenuSelectorStart+120 );
     }
     else if(scroll >= 2100 && scroll < 2800) {
         $('#PageTitle').text('Works');
-        $("#MenuSelector").css("top", MenuSelectorStart+120 );
+        $("#MenuSelector").css("bottom", MenuSelectorStart+80 );
     }
     else if(scroll >= 2800 && scroll < 4000) {
         $('#PageTitle').text('Copyright');
-        $("#MenuSelector").css("top", MenuSelectorStart+160 );
+        $("#MenuSelector").css("bottom", MenuSelectorStart+40 );
     }
 
+    if(MenuSelectorHide){
+        $("#MenuSelector").show();
+        MenuSelectorHide = false;
+        console.log(88);
+    }
 });
+
 
 });
 
