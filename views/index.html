@@ -1,17 +1,57 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8"/>
+	<meta charset="UTF-8">
+	<title>HTML-AudioPlayer</title>
+	<link rel="stylesheet/less" type="text/css" href="theme.less" />
+    <link rel="stylesheet/less" type="text/css" href="cont.less" />
+    <script src="lib/less.min.js"></script>
+    <script src="lib/jquery-1.11.3.min.js"></script>
+    <script src="lib/d3.v3.min.js"></script>
+
     <script src="lib/react.development.js"></script>
     <script src="lib/react-dom.development.js"></script>
     <script src="lib/babel.min.js"></script>
     <script src="lib/axios.min.js"></script>
-
-    <link rel="stylesheet/less" type="text/css" href="theme.less" />
-    <script src="lib/less.min.js"></script>
 </head>
 <body>
-    <div id="root"></div>
-	<script type="text/babel" src="main.jsx"></script>
+
+<div id="root"></div>
+<script type="text/babel" src="main.jsx"></script>
+
+<div id="head"></div>
+<ul class="menu">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#foreword">Foreword</a></li>
+	<li><a href="#profile">Profile</a></li>
+    <li><a href="#works">Works</a></li>
+    <li><a href="#copyright">Copyright</a></li>
+</ul>
+
+<h1 id="PageTitle"></h1>
+
+<audio id="audioElement" src="平茸 - Prismatic.mp3"></audio>
+
+<script src="music.js" charset="utf-8"></script>
 </body>
+<script>
+$(document).ready(function(){
+
+const song = document.getElementById('audioElement');
+      song.play();
+
+$('#root').scroll(function (event) {
+    let scroll = $('#root').scrollTop();
+
+    if(scroll >= 0 && scroll < 300) $('#PageTitle').text('');
+    else if(scroll >= 500 && scroll < 1000) $('#PageTitle').text('Foreword');
+    else if(scroll >= 1200 && scroll < 1900) $('#PageTitle').text('Profile');
+    else if(scroll >= 2100 && scroll < 3000) $('#PageTitle').text('Works');
+    else if(scroll >= 2100 && scroll < 3000) $('#PageTitle').text('Copyright');
+    //console.log(scroll);
+});
+
+});
+
+</script>
 </html>

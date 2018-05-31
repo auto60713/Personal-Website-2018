@@ -8,18 +8,38 @@
          },
          {
            "name": "逢甲大學 多媒體暨網路安全實驗室",
-           "depiction": "逢甲大學多媒體暨網路安全實驗室的網站，內容為歷屆學生論文上傳、學生論文報告簡報、教授演講簡報..等教學資源，並與張講座個人網站共同經營。",
+           "depiction": "逢甲大學多媒體暨網路安全實驗室的網站，已經搭建幾十年，於2017年進行重建更新，內容為歷屆學生論文上傳、學生論文報告簡報、教授演講簡報..等教學資源，並與張講座個人網站共同經營。",
            "url": "http://msn.iecs.fcu.edu.tw/"
          },
          {
+           "name": "長榮大學ACG研究社 形象網站",
+           "depiction": "大量使用當時流行的HTML5設計模式(2014)，特色是利用視差滾動來控制圖片動畫。",
+           "url": "https://github.com/auto60713/cjcu_acg"
+         },
+         {
            "name": "Ozen's personal website (2014)",
-           "depiction": "I learned many popular web technologies in 2014. And want to build a personal web page, So did this work. At the time it was using the 'Auto' nickname, And founded the 'Autoplay' brand.",
+           "depiction": "I learned many popular web technologies in 2014. And want to build a personal web page, so did this work. At the time it was using the 'Auto' nickname, and founded the 'Autoplay' brand.",
            "url": "https://github.com/auto60713/myself_web2014"
          },
          {
            "name": "Ozen's personal website (2015)",
-           "depiction": "I remade my personal webpage in 2015. I liked listening to EDM at that time and knew Steve Aoki. Use his film in tomorrowland as the theme of the web.",
+           "depiction": "I remade my personal webpage in 2015. I liked listening to EDM at that time and knew DJ Steve Aoki. Use his film in tomorrowland as the theme of the web.",
            "url": "https://github.com/auto60713/myself_web2015"
+         },
+         {
+           "name": "RWD with CSS grid",
+           "depiction": "利用CSS3的grid來安排響應式版面，讓網頁內容在電腦螢幕、平板屏幕及手機螢幕上，呈現不同的佈局。",
+           "url": "https://github.com/auto60713/rwd-with-css-grid"
+         },
+         {
+           "name": "Audio visualization use D3.js",
+           "depiction": "Convert audio coefficients into javascript array. Use D3.js to display array data as SVG graphics.",
+           "url": "https://github.com/auto60713/music_visualization"
+         },
+         {
+           "name": "CSS3 Animation",
+           "depiction": "The ultimate show of CSS3 animation. It’s using the movement, scale, opacity and speedctrl to complete the entire animation.",
+           "url": "https://github.com/auto60713/html5_css3_animation"
          }
      ]
 }

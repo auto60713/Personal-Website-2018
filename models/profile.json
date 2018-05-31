@@ -12,22 +12,24 @@
         "資料庫維護管理",
         "資訊安全"
     ],
-    "language": [
-    	"HTML",
+    "languages": [
+    	"HTML5",
         "JavaScript (ES6)",
-        "CSS",
+        "CSS3",
         "php",
         "SQL"
     ],
     "libraries": [
-        "React.js + Babel",
-        "node.js",
+        "React.js",
+        "Babel (jsx)",
+        "jQuery",
         "less",
-        "jQuery"
+        "Bootstrap",
+        "D3.js"
     ],
     "tools": [
         "GitHub",
-        "webpack",
+        "node.js & webpack",
         "MySQL",
         "MS SQL"
     ]

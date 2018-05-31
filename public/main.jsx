@@ -2,13 +2,12 @@
 let profile = [];
 let p_name;
 let p_skills;
-let p_language;
+let p_languages;
 let p_libraries;
 let p_tools;
 
 let projects;
 let projects_set = [];
-
 
 
 class PersonList extends React.Component {
@@ -22,12 +21,10 @@ class PersonList extends React.Component {
 
   componentDidMount() {
 
-    document.title = "Ozen himself 2018";
-
     //axios.then裡面讀不到this
     let self = this;
 
-    //axios是AJAX函式庫, 用get來獲取資料
+    //axios是AJAX函式庫, 用get來獲取資料, 資料來源請找app.js
     function getProfile() {
       return axios.get('/data');
     }
@@ -41,11 +38,11 @@ class PersonList extends React.Component {
 
         profile = pf.data;
 
-        p_name = profile.c_name+" ("+profile.e_name+")";
-        p_skills    = setCollection(profile.skills);
-        p_language  = setCollection(profile.language);
-        p_libraries = setCollection(profile.libraries);
-        p_tools     = setCollection(profile.tools);
+        p_name = profile.e_name;
+        p_skills    = AryToDiv(profile.skills);
+        p_languages  = AryToDiv(profile.languages);
+        p_libraries = AryToDiv(profile.libraries);
+        p_tools     = AryToDiv(profile.tools);
    
         projects = pj.data.projects;     
 
@@ -63,53 +60,69 @@ class PersonList extends React.Component {
   } //componentDidMount end
 
 
-
   //主架構
   render() {
 
     return (
-      <div className="page-body">
-      <div className="menu_box">
-         <ul className="menu">
-           <li><a href="#profile">Profile</a></li>
-           <li><a href="#projects">Works</a></li>
-         </ul>
+      <div id="home" className="page-body">
+
+      <h1 className="BigTitle">Autoplay</h1>   
+      <h1 className="SubTitle">Front-End Development, Website Art Design</h1>   
+
+      <div id="foreword">
+      <p>我的名字叫做Ozen，台灣人，專長為網頁前端設計。<br/><br/>
+      小時候很喜歡玩電玩，當時有一款遊戲是開放原始碼，於是我開始嘗試去修改遊戲的程式碼，這是我人生第一次接觸到寫程式，只是當時並沒有這樣的認知，只是覺得打一些字，遊戲的內容就改變了，後來便養成了喜歡去看遊戲程式資料的習慣，這件事是我對於程式設計的啟蒙。
+      <br/><br/>
+      大學時開始學習網頁設計，當時的專題是網路家庭相簿，在小組裡擔任主要程式，由前端寫到後端包含資料庫的設計與建立。後來在老師的培養下參加各種比賽，使我成為了一個網頁設計師。
+      <br/><br/>
+      我喜歡電玩、動畫、音樂、美術和時尚，我在網頁設計會特別重視美術與使用者體驗，每當我寫出一個很酷的網站，我就會很有成就感，這也是保持我熱情的原因。現在我依然持續開發，希望未來能做出大家都覺得很有趣的網站。
+      </p>
+      <p>My name is Ozen, I'm Taiwanese. My specialty is Front-End Design.<br/><br/>
+      I love playing video games when I was a kid. There was a game that was open source at the time. So I started trying to modify the code of the game. This is the first time I have written a program. It was only then that there was no such understanding. I just feel like typing some words, the content of the game has changed. Later I became accustomed to watching game program data. This is my initiation of programming.
+      <br/><br/>
+      I started learning web design at university. The topic at that time was an online family album. Cause of the training of teachers to participate in various competitions. So I became a web designer. 
+      <br/><br/>
+      I like video games, animation, music, art, and fashion. I pay special attention to the art and user experience in web design. Whenever I write a cool website, I have a sense of accomplishment. This is also the reason to keep my passion. Now I still continue to develop. I hope that in the future we will be able to make websites that everyone finds interesting.
+      </p>
       </div>
-     
-      <h1 className="title">Profile</h1>    
-      <table className="profile_box">
+
+      <table id="profile" className="profile_box">
         <tbody>
-          <ProfileCom left="Name" right={p_name}/>
-          <ProfileCom left="Age" right={profile.age}/>
-          <ProfileCom left="E-mail" right={profile.mail}/>
-          <ProfileCom left="Skills" right={p_skills}/>
-          <ProfileCom left="Language" right={p_language}/>
-          <ProfileCom left="Libraries" right={p_libraries}/>
-          <ProfileCom left="Tools" right={p_tools}/>
+          <TableItems left="Name" right={p_name}/>
+          <TableItems left="E-mail" right={profile.mail}/>
+          <TableItems left="Skills" right={p_skills}/>
+          <TableItems left="Languages" right={p_languages}/>
+          <TableItems left="Libraries" right={p_libraries}/>
+          <TableItems left="Tools" right={p_tools}/>
         </tbody>
       </table>
 
-      <h1 className="title">Works</h1>
-      <div className="projects_box">
+      <div id="works" className="projects_box">
           {projects_set}
+      </div>
+
+      <div id="copyright">
+          Original Art Design: SayMaxWell<br/>
+          Music: 平茸 - Prismatic
       </div>
       </div>
     );
   }
 }
 
-//json格式中會有array, 轉換成jsx物件
-function setCollection(array) {
 
-	let items = array.map( (it) => <div key={it}> {it} </div> );
+//json格式中會有array, 轉換成jsx物件
+function AryToDiv(array) {
+
+  let items = array.map( (it) => <div key={it}> {it} </div> );
 
   return items;
 }
 
 //react設定物件
-const ProfileCom = props => <tr><td>{props.left}</td><td>{props.right}</td></tr>;
-const ProjectsCom = props => <div><a href={props.url} target="_blank"><span>{props.name}</span><br/></a><p>{props.dep}</p></div>;
-
+const TableItems = p => <tr><td>{p.left}</td><td>{p.right}</td></tr>;
+const ProjectsCom = p => <div><a href={p.url} target="_blank"><span>{p.name}</span><br/></a><p>{p.dep}</p></div>;
+//p means props
 
 
 ReactDOM.render(
