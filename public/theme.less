@@ -1,24 +1,24 @@
 @font-face {
-    font-family: AbhayaLibre;
-    src: url('font/AbhayaLibre-Bold.ttf');
+    font-family: MicrosoftJhengHei;
+    src: url('font/MicrosoftJhengHei.ttf');
 }
 *{
     margin: 0;
-    font-family: AbhayaLibre;
+    font-family: MicrosoftJhengHei;
 }
 body{
     height: 100vh;
-    background-color: black;
+    background-color: #5C9C9C;
 }
 
-@theme-color: #5FC89B;
-
+@theme-color: #5C9C9C;
+@theme-light-color: #B4D6D7;
 /* pc */
 @media screen and (min-width: 769px) {
     #PageTitle{
         font-size: 8em;
         right: 20vw;
-        bottom: 7vh;
+        bottom: 10vh;
     }
     #head{
         width: 270px;
@@ -42,6 +42,13 @@ body{
 @media screen and (min-width: 0px) and (max-width: 320px) {
 }
 
+    svg{
+    	z-index: -1;
+    	position: fixed;
+    	height:100%;
+    	width:100%;
+    }
+
 #root{
     position: fixed;
     height: 100vh;
@@ -54,18 +61,21 @@ body{
 
 #head{
     position: fixed;
-    background-color: black;
-    border: 6px solid white;
-    right: -60px;
-    height: 100vh;
-    transform:rotate(10deg);
+
+    border: 4px solid white;
+    top: -5vh;
+    right: -70px;
+    height: 110vh;
+    transform:rotate(-3deg);
+background-color: #A9D3D1;
 }
 .menu{
-
+    z-index: 5;
     position: fixed;
     width: 180px;
     list-style: none;
     padding: 0;
+    transform: rotate(-3deg);
     li{
         a{
             color: #FFFFFF;
@@ -81,19 +91,22 @@ body{
 #MenuSelector{
     position: fixed;
     display: none;
-    right: 0;
-    width: 180px;
+    right: 0px;
+    width: 209px;
     height: 40px;
     background-color: @theme-color;
     transition: bottom 0.6s;
+    transform: rotate(-3deg);
+
 }
 #PageTitle{
+	z-index: 2;
     position: fixed;
     display: none;
     color: white;
     cursor: default;
     max-width: 70vw;
-    text-shadow: 0px 0px 10px @theme-color;
+    text-shadow: 0px 0px 10px @theme-light-color;
 }
 #MusicBar{
     z-index: 3;

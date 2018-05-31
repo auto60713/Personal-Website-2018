@@ -52,7 +52,7 @@ $(document).ready(function () {
            return (d*0.8-110);
         })
         .attr('fill', function(d) {
-           return '#5FC89B';
+           return '#7BBEA1';
         });
 
   }

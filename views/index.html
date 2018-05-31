@@ -20,6 +20,19 @@
 <div id="root"></div>
 <script type="text/babel" src="main.jsx"></script>
 
+<svg>
+
+  <rect width="500" height="500" x="100" y="100" fill="none" stroke="#63B793">
+    <animateTransform dur="20s" attributeName="transform" repeatCount="indefinite" type="rotate" from="0,350,350" to="360,350,350"/> 
+  </rect>
+
+  <rect width="800" height="800" x="500" y="300"  fill="none" stroke="#63B793">
+    <animateTransform dur="46s" attributeName="transform" repeatCount="indefinite" type="rotate" from="510,900,550" to="150,900,550"/> 
+  </rect>
+
+</svg>
+
+
 <div id="head"></div>
 <div id="MenuSelector"></div>
 <ul class="menu">
@@ -33,7 +46,7 @@
 
 <h1 id="PageTitle"></h1>
 
-<audio id="audioElement" src="平茸 - Prismatic.mp3"></audio>
+<audio id="audioElement" src="Detroit Swindle - Yes No Maybe (feat. Tom Misch).mp3"></audio>
 
 <script src="music.js" charset="utf-8"></script>
 </body>
@@ -48,8 +61,10 @@ const song = document.getElementById('audioElement');
         else song.pause();
     });
 
+const MenuItH = 43;
+
 //initialization
-$("#MenuSelector").css("bottom", $( window ).height()/4+200 );
+$("#MenuSelector").css("bottom", $( window ).height()/4+MenuItH*5 );
 $("#MenuSelector").show();
 
 $('#root').scroll(function (event) {
@@ -61,19 +76,29 @@ $('#root').scroll(function (event) {
     if(scroll >= 0 && scroll < layer[0]){
 
         $("#PageTitle").fadeOut( 200 );
-        $("#MenuSelector").css("bottom", MenuSelectorStart+200 );
+        $("#MenuSelector").css("bottom", MenuSelectorStart+MenuItH*5);
+                $( ".menu a" ).css('textShadow','0px 0px #3A595C');
+        $( ".menu a:eq( 0 )" ).css('textShadow','1px 2px #3A595C');
     } 
     else if(scroll >= layer[0] && scroll < layer[1]) {
-        setUnit('Foreword', MenuSelectorStart+160);
+        setUnit('Foreword', MenuSelectorStart+MenuItH*4);
+        $( ".menu a" ).css('textShadow','0px 0px #3A595C');
+        $( ".menu a:eq( 1 )" ).css('textShadow','1px 2px #3A595C');
     }
     else if(scroll >= layer[1] && scroll < layer[2]) {
-        setUnit('Profile', MenuSelectorStart+120);
+        setUnit('Profile', MenuSelectorStart+MenuItH*3);
+        $( ".menu a" ).css('textShadow','0px 0px #3A595C');
+        $( ".menu a:eq( 2 )" ).css('textShadow','1px 2px #3A595C');
     }
     else if(scroll >= layer[2] && scroll < layer[3]) {
-        setUnit('Works', MenuSelectorStart+80);
+        setUnit('Works', MenuSelectorStart+MenuItH*2);
+        $( ".menu a" ).css('textShadow','0px 0px #3A595C');
+        $( ".menu a:eq( 3 )" ).css('textShadow','1px 2px #3A595C');
     }
     else if(scroll >= layer[3]) {
-        setUnit('Copyright', MenuSelectorStart+40);
+        setUnit('Copyright', MenuSelectorStart+MenuItH);
+                $( ".menu a" ).css('textShadow','0px 0px #3A595C');
+        $( ".menu a:eq( 4 )" ).css('textShadow','1px 2px #3A595C');
     }
     if(scroll >= layer[0]) {
         $("#PageTitle").fadeIn( 1000 );
