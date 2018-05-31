@@ -48,42 +48,44 @@ const song = document.getElementById('audioElement');
         else song.pause();
     });
 
-let MenuSelectorHide = true;
-
-
+//initialization
+$("#MenuSelector").css("bottom", $( window ).height()/4+200 );
+$("#MenuSelector").show();
 
 $('#root').scroll(function (event) {
     let scroll = $('#root').scrollTop();
     let MenuSelectorStart = $( window ).height()/4;
 
-    if(scroll >= 0 && scroll < 500){
-        $('#PageTitle').text('');
+    let layer = [400,1100,2050,2900];
+
+    if(scroll >= 0 && scroll < layer[0]){
+
+        $("#PageTitle").fadeOut( 200 );
         $("#MenuSelector").css("bottom", MenuSelectorStart+200 );
     } 
-    else if(scroll >= 500 && scroll < 1200) {
-        $('#PageTitle').text('Foreword');
-        $("#MenuSelector").css("bottom", MenuSelectorStart+160 );
+    else if(scroll >= layer[0] && scroll < layer[1]) {
+        setUnit('Foreword', MenuSelectorStart+160);
     }
-    else if(scroll >= 1200 && scroll < 2100) {
-        $('#PageTitle').text('Profile');
-        $("#MenuSelector").css("bottom", MenuSelectorStart+120 );
+    else if(scroll >= layer[1] && scroll < layer[2]) {
+        setUnit('Profile', MenuSelectorStart+120);
     }
-    else if(scroll >= 2100 && scroll < 2800) {
-        $('#PageTitle').text('Works');
-        $("#MenuSelector").css("bottom", MenuSelectorStart+80 );
+    else if(scroll >= layer[2] && scroll < layer[3]) {
+        setUnit('Works', MenuSelectorStart+80);
     }
-    else if(scroll >= 2800 && scroll < 4000) {
-        $('#PageTitle').text('Copyright');
-        $("#MenuSelector").css("bottom", MenuSelectorStart+40 );
+    else if(scroll >= layer[3]) {
+        setUnit('Copyright', MenuSelectorStart+40);
     }
-
-    if(MenuSelectorHide){
-        $("#MenuSelector").show();
-        MenuSelectorHide = false;
-        console.log(88);
+    if(scroll >= layer[0]) {
+        $("#PageTitle").fadeIn( 1000 );
     }
+    //console.log(scroll);
 });
 
+function setUnit (title, selectorFix) {
+
+    $('#PageTitle').text(title);
+    $("#MenuSelector").css("bottom", selectorFix );
+}
 
 });
 
