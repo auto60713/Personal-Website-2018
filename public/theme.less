@@ -15,9 +15,10 @@
 @theme-svg-color: #63B793;
 
 body{
-    height: 100vh;
+height: 100vh;
     background-color: @theme-colorDeep;
-    	color: white;
+    color: white;
+
 
     h1, p, td{
         cursor: default;
@@ -54,7 +55,7 @@ body{
 }
 
 #root{
-	z-index: 3;
+    z-index: 3;
     position: fixed;
     height: 100vh;
     width: 75vw;
@@ -62,14 +63,22 @@ body{
     overflow-y: scroll;
 }
 
+
 #head{
     position: fixed;
     height: 110vh;
     width: 20vw;
     border: 4px solid white;
     top: -5vh;
-    right: -70px;
+    right: -5vw;
     background-color: @theme-color;
+}
+#MenuSelector{
+    position: fixed;
+    height: 40px;
+    width: 200px;
+    background-color: @theme-colorDeep;
+    transition: all 0.6s;
 }
 
 #menu{
@@ -93,13 +102,7 @@ body{
     li:hover > a { margin-left: 5px; }
 }
 
-#MenuSelector{
-    position: fixed;
-    width: 210px;
-    height: 40px;
-    background-color: @theme-colorDeep;
-    transition: all 0.6s;
-}
+
 #PageTitle{
 	z-index: 2;
     position: fixed;

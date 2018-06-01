@@ -7,7 +7,7 @@
 	<link rel="stylesheet/less" type="text/css" href="theme.less" />
     <link rel="stylesheet/less" type="text/css" href="cont.less" />
     <script src="lib/less.min.js"></script>
-    <script src="lib/jquery-1.11.3.min.js"></script>
+    <script src="lib/jquery-3.3.1.min.js"></script>
     <script src="lib/d3.v3.min.js"></script>
 
     <script src="lib/react.development.js"></script>
@@ -33,12 +33,11 @@
 <div id="head"></div>
 <div id="MenuSelector"></div>
 <ul id="menu">
-    <li><a href="#home">Home</a></li>
-    <li><a href="#foreword">Foreword</a></li>
-    <li><a href="#profile">Profile</a></li>
-    <li><a href="#works">Works</a></li>
-    <li><a href="#copyright">Copyright</a></li>
-    <li><a class="AudioBt">Audio</a></li>
+    <li><a href="#" layer="0">Home</a></li>
+    <li><a href="#" layer="1">Foreword</a></li>
+    <li><a href="#" layer="2">Profile</a></li>
+    <li><a href="#" layer="3">Works</a></li>
+    <li><a href="#" layer="4">Copyright</a></li>
 </ul> 
 
 
@@ -53,70 +52,82 @@
 $(document).ready(function(){
 
 const song = document.getElementById('audioElement');
-      song.play();
+      //song.play();
 
-    $( ".AudioBt" ).click(function() {
+    $( "#MusicBar" ).click(function() {
         if(song.paused) song.play();
         else song.pause();
+
     });
 
 
+const layerED = 4;
 const MenuItH = 43;
-const MenuItR = 2.2;
+const MenuItR = 2.2; //2.2
 
 //initialization
-let layerNow;
+let vh
+let layerDeep = []; const fix = [0.072, 0.08, 0.278, 0.539, 0.8]; //RWD 
+let layerNow = -1;
 let layerIndex;
-let layer = [400,1100,2050,2900];
-setOption('', 5);
+setOption('', layerED);
 
-$('#root').scroll(function (event) {
 
-    let scroll = $('#root').scrollTop();
+    $( "#menu a" ).click(function() {
 
-    if(scroll >= layer[0]) {
-        $("#PageTitle").fadeIn( 1000 );
+        vh = document.getElementById("root").scrollHeight;;
+        layerDeep = [-(vh*fix[0]), vh*fix[1], vh*fix[2], vh*fix[3], vh*fix[4]]; 
+        let layer = $(this).attr("layer");
+        $("#root").stop().animate({scrollTop: layerDeep[layer]+(vh*fix[0])}, 600, 'linear');
+
+    });
+
+
+$("#root").scroll(function (event) {
+
+    let scroll = $("#root").scrollTop();
+    
+    vh = document.getElementById("root").scrollHeight;;
+    layerDeep = [-(vh*fix[0]), vh*fix[1], vh*fix[2], vh*fix[3], vh*fix[4]]; 
+
+    if(scroll >= layerDeep[1]) {
+        $("#PageTitle").fadeIn( 600 );
     }
-    //Menu Option 1
-    if(scroll < layer[0]){
-        layerIndex = 1;
+    if(scroll < layerDeep[1]){
+        layerIndex = 0;
         //Layer change!
         if(layerNow!=layerIndex){ 
             layerNow = layerIndex;
-            setOption('Foreword', 6-layerNow);
+            setOption('Foreword', layerED-layerNow);
             $("#PageTitle").fadeOut( 200 );
         }
     } 
-    //Menu Option 2
-    else if(scroll >= layer[0] && scroll < layer[1]) {
+    else if(scroll >= layerDeep[1] && scroll < layerDeep[2]) {
+        layerIndex = 1;
+        if(layerNow!=layerIndex){ 
+            layerNow = layerIndex;
+            setOption('Foreword', layerED-layerIndex);
+        }
+    }
+    else if(scroll >= layerDeep[2] && scroll < layerDeep[3]) {
         layerIndex = 2;
         if(layerNow!=layerIndex){ 
             layerNow = layerIndex;
-            setOption('Foreword', 6-layerIndex);
+            setOption('Profile', layerED-layerIndex);
         }
     }
-    //Menu Option 3
-    else if(scroll >= layer[1] && scroll < layer[2]) {
+    else if(scroll >= layerDeep[3] && scroll < layerDeep[4]) {
         layerIndex = 3;
         if(layerNow!=layerIndex){ 
             layerNow = layerIndex;
-            setOption('Profile', 6-layerIndex);
+            setOption('Works', layerED-layerIndex);
         }
     }
-    //Menu Option 4
-    else if(scroll >= layer[2] && scroll < layer[3]) {
+    else if(scroll >= layerDeep[4]) {
         layerIndex = 4;
         if(layerNow!=layerIndex){ 
             layerNow = layerIndex;
-            setOption('Works', 6-layerIndex);
-        }
-    }
-    //Menu Option 5
-    else if(scroll >= layer[3]) {
-        layerIndex = 5;
-        if(layerNow!=layerIndex){ 
-            layerNow = layerIndex;
-            setOption('Copyright', 6-layerIndex);
+            setOption('Copyright', layerED-layerIndex);
         }
     }
 
@@ -130,13 +141,14 @@ let MenuSelectorStart = $( window ).height()/4;
     $('#PageTitle').text(title);
 
     $( "#menu a" ).css('textShadow','0px 0px #3A595C');
-    $( "#menu a:eq( "+(5-i)+" )" ).css('textShadow','2px 2px #3A595C');
+    $( "#menu a:eq( "+(4-i)+" )" ).css('textShadow','2px 2px #3A595C');
 
     $("#MenuSelector").css({
        'bottom' : MenuSelectorStart+(MenuItH*i),
-       'right' : -13.5+(MenuItR*i)
+       'right' : -20+(MenuItR*i)
     });
 }
+
 
 });
 

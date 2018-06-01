@@ -100,7 +100,7 @@ class Page extends React.Component {
           {projects_set}
       </div>
 
-      <div id="copyright">
+      <div id="copyright" className="LsatSpace">
           Art Design Assistance: ZMA<br/>
           Music: Detroit Swindle - Yes No Maybe (feat. Tom Misch)
       </div>
