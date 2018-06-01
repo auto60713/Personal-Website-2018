@@ -20,29 +20,28 @@
 <div id="root"></div>
 <script type="text/babel" src="main.jsx"></script>
 
-<svg>
-
+<svg id="background">
   <rect width="500" height="500" x="100" y="100" fill="none" stroke="#63B793">
     <animateTransform dur="20s" attributeName="transform" repeatCount="indefinite" type="rotate" from="0,350,350" to="360,350,350"/> 
   </rect>
-
   <rect width="800" height="800" x="500" y="300"  fill="none" stroke="#63B793">
     <animateTransform dur="46s" attributeName="transform" repeatCount="indefinite" type="rotate" from="510,900,550" to="150,900,550"/> 
   </rect>
-
 </svg>
 
 
 <div id="head"></div>
 <div id="MenuSelector"></div>
-<ul class="menu">
+<ul id="menu">
     <li><a href="#home">Home</a></li>
     <li><a href="#foreword">Foreword</a></li>
-	<li><a href="#profile">Profile</a></li>
+    <li><a href="#profile">Profile</a></li>
     <li><a href="#works">Works</a></li>
     <li><a href="#copyright">Copyright</a></li>
     <li><a class="AudioBt">Audio</a></li>
-</ul>
+</ul> 
+
+
 
 <h1 id="PageTitle"></h1>
 
@@ -61,55 +60,82 @@ const song = document.getElementById('audioElement');
         else song.pause();
     });
 
+
 const MenuItH = 43;
+const MenuItR = 2.2;
 
 //initialization
-$("#MenuSelector").css("bottom", $( window ).height()/4+MenuItH*5 );
-$("#MenuSelector").show();
+let layerNow;
+let layerIndex;
+let layer = [400,1100,2050,2900];
+setOption('', 5);
 
 $('#root').scroll(function (event) {
+
     let scroll = $('#root').scrollTop();
-    let MenuSelectorStart = $( window ).height()/4;
 
-    let layer = [400,1100,2050,2900];
-
-    if(scroll >= 0 && scroll < layer[0]){
-
-        $("#PageTitle").fadeOut( 200 );
-        $("#MenuSelector").css("bottom", MenuSelectorStart+MenuItH*5);
-                $( ".menu a" ).css('textShadow','0px 0px #3A595C');
-        $( ".menu a:eq( 0 )" ).css('textShadow','1px 2px #3A595C');
-    } 
-    else if(scroll >= layer[0] && scroll < layer[1]) {
-        setUnit('Foreword', MenuSelectorStart+MenuItH*4);
-        $( ".menu a" ).css('textShadow','0px 0px #3A595C');
-        $( ".menu a:eq( 1 )" ).css('textShadow','1px 2px #3A595C');
-    }
-    else if(scroll >= layer[1] && scroll < layer[2]) {
-        setUnit('Profile', MenuSelectorStart+MenuItH*3);
-        $( ".menu a" ).css('textShadow','0px 0px #3A595C');
-        $( ".menu a:eq( 2 )" ).css('textShadow','1px 2px #3A595C');
-    }
-    else if(scroll >= layer[2] && scroll < layer[3]) {
-        setUnit('Works', MenuSelectorStart+MenuItH*2);
-        $( ".menu a" ).css('textShadow','0px 0px #3A595C');
-        $( ".menu a:eq( 3 )" ).css('textShadow','1px 2px #3A595C');
-    }
-    else if(scroll >= layer[3]) {
-        setUnit('Copyright', MenuSelectorStart+MenuItH);
-                $( ".menu a" ).css('textShadow','0px 0px #3A595C');
-        $( ".menu a:eq( 4 )" ).css('textShadow','1px 2px #3A595C');
-    }
     if(scroll >= layer[0]) {
         $("#PageTitle").fadeIn( 1000 );
     }
+    //Menu Option 1
+    if(scroll < layer[0]){
+        layerIndex = 1;
+        //Layer change!
+        if(layerNow!=layerIndex){ 
+            layerNow = layerIndex;
+            setOption('Foreword', 6-layerNow);
+            $("#PageTitle").fadeOut( 200 );
+        }
+    } 
+    //Menu Option 2
+    else if(scroll >= layer[0] && scroll < layer[1]) {
+        layerIndex = 2;
+        if(layerNow!=layerIndex){ 
+            layerNow = layerIndex;
+            setOption('Foreword', 6-layerIndex);
+        }
+    }
+    //Menu Option 3
+    else if(scroll >= layer[1] && scroll < layer[2]) {
+        layerIndex = 3;
+        if(layerNow!=layerIndex){ 
+            layerNow = layerIndex;
+            setOption('Profile', 6-layerIndex);
+        }
+    }
+    //Menu Option 4
+    else if(scroll >= layer[2] && scroll < layer[3]) {
+        layerIndex = 4;
+        if(layerNow!=layerIndex){ 
+            layerNow = layerIndex;
+            setOption('Works', 6-layerIndex);
+        }
+    }
+    //Menu Option 5
+    else if(scroll >= layer[3]) {
+        layerIndex = 5;
+        if(layerNow!=layerIndex){ 
+            layerNow = layerIndex;
+            setOption('Copyright', 6-layerIndex);
+        }
+    }
+
     //console.log(scroll);
 });
 
-function setUnit (title, selectorFix) {
+function setOption (title, i) {
+
+let MenuSelectorStart = $( window ).height()/4;
 
     $('#PageTitle').text(title);
-    $("#MenuSelector").css("bottom", selectorFix );
+
+    $( "#menu a" ).css('textShadow','0px 0px #3A595C');
+    $( "#menu a:eq( "+(5-i)+" )" ).css('textShadow','2px 2px #3A595C');
+
+    $("#MenuSelector").css({
+       'bottom' : MenuSelectorStart+(MenuItH*i),
+       'right' : -13.5+(MenuItR*i)
+    });
 }
 
 });

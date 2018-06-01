@@ -6,34 +6,33 @@
     margin: 0;
     font-family: MicrosoftJhengHei;
 }
+
+@theme-color: #A9D3D1;
+@theme-colorDeep: #5C9C9C;
+@theme-light-color: #B4D6D7;
+@theme-music-color: #7BBEA1;
+@theme-shadow-color: #3A595C;
+@theme-svg-color: #63B793;
+
 body{
     height: 100vh;
-    background-color: #5C9C9C;
+    background-color: @theme-colorDeep;
+    	color: white;
+
+    h1, p, td{
+        cursor: default;
+    }
+    a{
+    	color: white;
+    	cursor: pointer;
+    }
+    a:hover{
+        cursor: pointer;
+    }
 }
 
-@theme-color: #5C9C9C;
-@theme-light-color: #B4D6D7;
 /* pc */
 @media screen and (min-width: 769px) {
-    #PageTitle{
-        font-size: 8em;
-        right: 20vw;
-        bottom: 10vh;
-    }
-    #head{
-        width: 270px;
-    }
-    .menu{  
-        bottom: 25vh;
-        left: 88vw;
-            li{  
-                padding: 5px;
-            a{
-                font-size: 1.5em;
-    }   }   }
-    #PageTitle, #MusicBar{
-        transform: rotate(-3deg);
-    }
 }
 /* pad */
 @media screen and (min-width: 321px) and (max-width: 768px) {
@@ -42,70 +41,73 @@ body{
 @media screen and (min-width: 0px) and (max-width: 320px) {
 }
 
-    svg{
-    	z-index: -1;
-    	position: fixed;
-    	height:100%;
-    	width:100%;
-    }
+
+#head, #menu, #MenuSelector, #PageTitle, #MusicBar {
+    transform: rotate(-3deg);
+}
+
+#background{
+    z-index: -1;
+    position: fixed;
+    height:100%;
+    width:100%;
+}
 
 #root{
+	z-index: 3;
     position: fixed;
     height: 100vh;
     width: 75vw;
     padding-right: 30vw;
-
     overflow-y: scroll;
-    color: white;
 }
 
 #head{
     position: fixed;
-
+    height: 110vh;
+    width: 20vw;
     border: 4px solid white;
     top: -5vh;
     right: -70px;
-    height: 110vh;
-    transform:rotate(-3deg);
-background-color: #A9D3D1;
+    background-color: @theme-color;
 }
-.menu{
+
+#menu{
     z-index: 5;
     position: fixed;
     width: 180px;
-    list-style: none;
     padding: 0;
-    transform: rotate(-3deg);
+	bottom: 25vh;
+    left: 88vw;
+    list-style: none;
     li{
+    	padding: 5px;
+
         a{
-            color: #FFFFFF;
+        	font-size: 1.5em;
             text-decoration: none;
             transition: all 0.4s;
         }
-        a:hover{
-            cursor: pointer;
-            margin-left: 5px; 
-        }
+
     }
+    li:hover > a { margin-left: 5px; }
 }
+
 #MenuSelector{
     position: fixed;
-    display: none;
-    right: 0px;
-    width: 209px;
+    width: 210px;
     height: 40px;
-    background-color: @theme-color;
-    transition: bottom 0.6s;
-    transform: rotate(-3deg);
-
+    background-color: @theme-colorDeep;
+    transition: all 0.6s;
 }
 #PageTitle{
 	z-index: 2;
     position: fixed;
-    display: none;
-    color: white;
-    cursor: default;
     max-width: 70vw;
+    right: 20vw;
+    bottom: 10vh;
+    font-size: 8em;
+    display: none;
     text-shadow: 0px 0px 10px @theme-light-color;
 }
 #MusicBar{

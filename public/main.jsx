@@ -1,6 +1,6 @@
 //準備欄位們的陣列,  讓後端倒入資料
 let profile = [];
-let p_name;
+
 let p_skills;
 let p_languages;
 let p_libraries;
@@ -10,7 +10,7 @@ let projects;
 let projects_set = [];
 
 
-class PersonList extends React.Component {
+class Page extends React.Component {
 
   //保留變數state, 每當state改變, DOM會被重繪
   //於是設定trigger來當作信號
@@ -37,19 +37,18 @@ class PersonList extends React.Component {
     .then(axios.spread(function (pf, pj) {
 
         profile = pf.data;
-
-        p_name = profile.e_name;
+ 
         p_skills    = AryToDiv(profile.skills);
-        p_languages  = AryToDiv(profile.languages);
+        p_languages = AryToDiv(profile.languages);
         p_libraries = AryToDiv(profile.libraries);
         p_tools     = AryToDiv(profile.tools);
-   
+
         projects = pj.data.projects;     
 
         //用迴圈將Component push進array
         for (let i = 0; i < projects.length; i += 1) {
 
-          projects_set.push(<ProjectsCom key={projects[i].name} name={projects[i].name} dep={projects[i].depiction} url={projects[i].url}/>);         
+          projects_set.push(<ProjectsCom key={projects[i].name} index={"img/"+i+".PNG"} name={projects[i].name} dep={projects[i].depiction} url={projects[i].url}/>);         
         };
 
         //資料被倒入後, 用setState()改變trigger, 觸發DOM重繪, 亦在前端呈現資料
@@ -64,7 +63,7 @@ class PersonList extends React.Component {
   render() {
 
     return (
-      <div id="home" className="page-body">
+      <div id="home">
 
       <h1 className="BigTitle">Autoplay</h1>   
       <h1 className="SubTitle">Front-End Development, Website Art Design</h1>   
@@ -86,24 +85,24 @@ class PersonList extends React.Component {
       </p>
       </div>
 
-      <table id="profile" className="profile_box">
+      <table id="profile">
         <tbody>
-          <TableItems left="Name" right={p_name}/>
+          <TableItems left="Name" right={profile.e_name}/>
           <TableItems left="E-mail" right={profile.mail}/>
           <TableItems left="Skills" right={p_skills}/>
-          <TableItems left="Languages" right={p_languages}/>
+          <TableItems left="Language" right={p_languages}/>
           <TableItems left="Libraries" right={p_libraries}/>
           <TableItems left="Tools" right={p_tools}/>
         </tbody>
       </table>
 
-      <div id="works" className="projects_box">
+      <div id="works">
           {projects_set}
       </div>
 
       <div id="copyright">
-          Original Art Design: SayMaxWell<br/>
-          Music: 平茸 - Prismatic
+          Art Design Assistance: ZMA<br/>
+          Music: Detroit Swindle - Yes No Maybe (feat. Tom Misch)
       </div>
       </div>
     );
@@ -121,11 +120,11 @@ function AryToDiv(array) {
 
 //react設定物件
 const TableItems = p => <tr><td>{p.left}</td><td>{p.right}</td></tr>;
-const ProjectsCom = p => <div><a href={p.url} target="_blank"><span>{p.name}</span><br/></a><p>{p.dep}</p></div>;
+const ProjectsCom = p => <div><a href={p.url} target="_blank"><img src={p.index}/><span>{p.name}</span><br/></a><p>{p.dep}</p></div>;
 //p means props
 
 
 ReactDOM.render(
-  <PersonList/ >,
+  <Page/ >,
   document.getElementById('root')
 );
