@@ -136,7 +136,7 @@ $("#root").scroll(function (event) {
 
 function setOption (title, i) {
 
-let MenuSelectorStart = $( window ).height()/4;
+
 
     $('#PageTitle').text(title);
 
@@ -144,8 +144,8 @@ let MenuSelectorStart = $( window ).height()/4;
     $( "#menu a:eq( "+(4-i)+" )" ).css('textShadow','2px 2px #3A595C');
 
     $("#MenuSelector").css({
-       'bottom' : MenuSelectorStart+(MenuItH*i),
-       'right' : -9+(MenuItR*i)
+       'top' : 375-(MenuItH*i),
+       'right' : -23+(MenuItR*i)
     });
 }
 

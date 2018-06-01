@@ -5,13 +5,65 @@
 @ParagraphBlank: 40vh;
 
 
+/* pc */
+@media screen and (min-width: 769px) {
+    .BigTitle{
+        font-size: 10em;
+    }
+    #profile{
+        font-size: 1.5em;
+    }
+    #works{
+    img{
+        margin-right: 20px;
+        width: 100px;
+    }
+    span{
+            font-size: 2em;
+        } 
+        p{
+            width: 50vw;
+        }
+    }
+}
+/* pad */
+@media screen and (min-width: 321px) and (max-width: 768px) {
+    .BigTitle{
+        font-size: 4em;
+    }
+    #profile{
+        font-size: 1.5em;
+    }
+    #works{
+        img{
+            margin-right: 20px;
+            width: 100px;
+        }
+        span{
+            font-size: 1.5em;
+        } 
+    }
+}
+/* phone */
+@media screen and (min-width: 0px) and (max-width: 320px) {
+    #works{
+        img{
+            margin-right: 5%;
+            width: 96%;
+        }
+    }
+    #profile{
+        font-size: 1em;
+    }
+}
+
+
 #foreword, #profile, #works, #copyright{
     margin-bottom: @ParagraphBlank;
     margin-left: 3vw; 
 }
 
 .BigTitle{
-    font-size: 10em;
     padding-top: 30vh;
 }
 .SubTitle{
@@ -23,9 +75,7 @@
     text-shadow: 0px 0px 10px @theme-light-color;
 }
 
-
 #profile{
-    font-size: 1.5em;
     td{
         vertical-align: top;
         text-align: left;
@@ -35,24 +85,18 @@
 
 #works{
     img{
-        width: 100px;
-        margin-right: 20px;
         border: 1px solid white; 
         transition: all 0.4s;
     }
     a{
         text-decoration: none;
         transition: all 0.4s;
-        span{
-            font-size: 2em;
-        } 
     }
     a:hover{
         color: @theme-shadow-color;
     }
     a:hover > img { margin-left: 5px; }
     p{
-        width: 50vw;
         font-size: 0.9em;
         color: #E2E2E2;
         margin-bottom: 20px;
