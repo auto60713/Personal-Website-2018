@@ -38,6 +38,7 @@ body{
         padding-right: 30vw;
     }
     #PageTitle{
+        z-index: 2;
         font-size: 8em;
         bottom: 10vh;
         right: 20vw;
@@ -47,12 +48,13 @@ body{
     }
 }
 /* pad */
-@media screen and (min-width: 321px) and (max-width: 768px) {
+@media screen and (min-width: 381px) and (max-width: 768px) {
     #root{
         width: 97vw;
         padding-right: 10vw;
     }
     #PageTitle{
+        z-index: 2;
         font-size: 3em;
         bottom: 16vh;
         right: 0;
@@ -63,17 +65,15 @@ body{
     }
 }
 /* phone */
-@media screen and (min-width: 0px) and (max-width: 320px) {
-        #PageTitle{
+@media screen and (min-width: 0px) and (max-width: 380px) {
+    #PageTitle{
+        z-index: 5;
         font-size: 1em;
         background-color: @theme-color;
         padding: 5px;
         right:0;
     }
-    #menu, #MenuSelector, #head{ display: none; }
-    #MusicBar {
-        transform: rotate(0);
-    }
+    #MusicBar, #menu, #MenuSelector, #head{ display: none; }
 }
 
 
@@ -130,7 +130,7 @@ body{
 
 
 #PageTitle{
-	z-index: 2;
+
     position: fixed;
     max-width: 70vw;
     display: none;
