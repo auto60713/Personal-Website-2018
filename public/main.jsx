@@ -68,6 +68,7 @@ class Page extends React.Component {
       <h1 className="BigTitle">Autoplay</h1>   
       <h1 className="SubTitle">Front-End Development, Website Art Design</h1>   
 
+      <span className="UnitName">關於</span>
       <div id="foreword">
       <p>我的名字叫做Ozen，台灣人，專長為網頁前端設計。<br/><br/>
       小時候很喜歡玩電玩，當時有一款遊戲是開放原始碼，於是我開始嘗試去修改遊戲的程式碼，這是我人生第一次接觸到寫程式，只是當時並沒有這樣的認知，只是覺得打一些字，遊戲的內容就改變了，後來便養成了喜歡去看遊戲程式資料的習慣，這件事是我對於程式設計的啟蒙。
@@ -83,26 +84,42 @@ class Page extends React.Component {
       <br/><br/>
       I like video games, animation, music, art, and fashion. I pay special attention to the art and user experience in web design. Whenever I write a cool website, I have a sense of accomplishment. This is also the reason to keep my passion. Now I still continue to develop. I hope that in the future we will be able to make websites that everyone finds interesting.
       </p>
+
+
+       <div id="story">
+          <div className="story-box"><i class="fas fa-gamepad"></i><span>Games</span>
+          </div>
+          <div className="story-box"><i class="fas fa-code"></i><span>Coding</span>
+          </div>
+          <div className="story-box"><i class="fas fa-music"></i><span>Music</span>
+          </div>
       </div>
 
+      </div>
+ 
+   
+
+      <span className="UnitName">簡介</span>
       <table id="profile">
         <tbody>
-          <TableItems left="Name" right={profile.e_name}/>
-          <TableItems left="E-mail" right={profile.mail}/>
-          <TableItems left="Skills" right={p_skills}/>
-          <TableItems left="Language" right={p_languages}/>
-          <TableItems left="Libraries" right={p_libraries}/>
-          <TableItems left="Tools" right={p_tools}/>
+          <TableItems class="" left="Name" right={profile.e_name}/>
+          <TableItems class="" left="E-mail" right={profile.mail}/>
+          <TableItems class="" left="Skills" right={p_skills}/>
+          <TableItems class="" left="Language" right={p_languages}/>
+          <TableItems class="" left="Libraries" right={p_libraries}/>
+          <TableItems class="" left="Tools" right={p_tools}/>
         </tbody>
       </table>
 
+      <span className="UnitName">作品</span>
       <div id="works">
           {projects_set}
       </div>
 
+      <span className="UnitName">特別感謝</span>
       <div id="copyright" className="LsatSpace">
           Art Design Assistance: ZMA<br/>
-          Music: Detroit Swindle - Yes No Maybe (feat. Tom Misch)
+          Reference: <a href="https://www.youtube.com/watch?v=EVXkphT70Mo" target="_blank">SayMaxWell - Danganronpa Theme [Remix]</a>
       </div>
       </div>
     );
@@ -119,8 +136,18 @@ function AryToDiv(array) {
 }
 
 //react設定物件
-const TableItems = p => <tr><td>{p.left}</td><td>{p.right}</td></tr>;
-const ProjectsCom = p => <div><a href={p.url} target="_blank"><img src={p.index}/><span>{p.name}</span><br/></a><p>{p.dep}</p></div>;
+const TableItems = p => <tr><td><i className={p.class}></i>{p.left}</td><td>{p.right}</td></tr>;
+const ProjectsCom = p =>  <div>
+                              <a href={p.url} target="_blank">
+                              <div className="imgBox">
+                                  
+                                      <div className="works-cover"><span>{p.name}</span></div>
+                                      <img src={p.index}/>         
+                                  
+                              </div>
+                              </a>
+                              <p>{p.dep}</p>
+                          </div>;
 //p means props
 
 

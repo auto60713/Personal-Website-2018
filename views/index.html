@@ -14,6 +14,7 @@
     <script src="lib/react-dom.development.js"></script>
     <script src="lib/babel.min.js"></script>
     <script src="lib/axios.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
 </head>
 <body>
@@ -35,17 +36,17 @@
 <div id="MenuSelector"></div>
 <ul id="menu">
     <li><a href="#" layer="0">Home</a></li>
-    <li><a href="#" layer="1">Foreword</a></li>
+    <li><a href="#" layer="1">Introduction</a></li>
     <li><a href="#" layer="2">Profile</a></li>
     <li><a href="#" layer="3">Works</a></li>
-    <li><a href="#" layer="4">Copyright</a></li>
+    <li><a href="#" layer="4">Thanks</a></li>
 </ul> 
 
 
 
 <h1 id="PageTitle"></h1>
 
-<audio id="audioElement" src="Detroit Swindle - Yes No Maybe (feat. Tom Misch).mp3"></audio>
+<audio id="audioElement" src="平茸 - Prismatic.mp3"></audio>
 
 <script src="music.js" charset="utf-8"></script>
 </body>
@@ -53,7 +54,7 @@
 $(document).ready(function(){
 
 const song = document.getElementById('audioElement');
-      song.play();
+      //song.play();
 
     $( "#MusicBar" ).click(function() {
         if(song.paused) song.play();
@@ -68,15 +69,14 @@ const MenuItR = 2.2; //2.2
 
 //initialization
 let vh
-let layerDeep = []; const fix = [0.072, 0.08, 0.278, 0.539, 0.8]; //RWD 
+let layerDeep = []; const fix = [0.055, 0.08, 0.328, 0.600, 0.78]; //RWD 
 let layerNow = -1;
 let layerIndex;
 setOption('', layerED);
 
 
     $( "#menu a" ).click(function() {
-
-        vh = document.getElementById("root").scrollHeight;;
+        vh = document.getElementById("root").scrollHeight;
         layerDeep = [-(vh*fix[0]), vh*fix[1], vh*fix[2], vh*fix[3], vh*fix[4]]; 
         let layer = $(this).attr("layer");
         $("#root").stop().animate({scrollTop: layerDeep[layer]+(vh*fix[0])}, 600, 'linear');
@@ -91,23 +91,20 @@ $("#root").scroll(function (event) {
     vh = document.getElementById("root").scrollHeight;;
     layerDeep = [-(vh*fix[0]), vh*fix[1], vh*fix[2], vh*fix[3], vh*fix[4]]; 
 
-    if(scroll >= layerDeep[1]) {
-        $("#PageTitle").fadeIn( 600 );
-    }
+
     if(scroll < layerDeep[1]){
         layerIndex = 0;
         //Layer change!
         if(layerNow!=layerIndex){ 
             layerNow = layerIndex;
-            setOption('Foreword', layerED-layerNow);
-            $("#PageTitle").fadeOut( 200 );
+            setOption('', layerED-layerNow);
         }
     } 
     else if(scroll >= layerDeep[1] && scroll < layerDeep[2]) {
         layerIndex = 1;
         if(layerNow!=layerIndex){ 
             layerNow = layerIndex;
-            setOption('Foreword', layerED-layerIndex);
+            setOption('Intro.', layerED-layerIndex);
         }
     }
     else if(scroll >= layerDeep[2] && scroll < layerDeep[3]) {
@@ -128,7 +125,7 @@ $("#root").scroll(function (event) {
         layerIndex = 4;
         if(layerNow!=layerIndex){ 
             layerNow = layerIndex;
-            setOption('Copyright', layerED-layerIndex);
+            setOption('Thanks', layerED-layerIndex);
         }
     }
 
@@ -137,9 +134,10 @@ $("#root").scroll(function (event) {
 
 function setOption (title, i) {
 
-
-
-    $('#PageTitle').text(title);
+    $("#PageTitle").fadeOut( 150 , function() {
+        $('#PageTitle').text(title);
+        $("#PageTitle").fadeIn( 300 );
+    });
 
     $( "#menu a" ).css('textShadow','0px 0px #3A595C');
     $( "#menu a:eq( "+(4-i)+" )" ).css('textShadow','2px 2px #3A595C');
