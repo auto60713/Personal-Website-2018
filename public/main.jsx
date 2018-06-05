@@ -85,7 +85,6 @@ class Page extends React.Component {
       I like video games, animation, music, art, and fashion. I pay special attention to the art and user experience in web design. Whenever I write a cool website, I have a sense of accomplishment. This is also the reason to keep my passion. Now I still continue to develop. I hope that in the future we will be able to make websites that everyone finds interesting.
       </p>
 
-
        <div id="story">
           <div className="story-box"><i class="fas fa-gamepad"></i><span>Games</span>
           </div>
@@ -97,8 +96,6 @@ class Page extends React.Component {
 
       </div>
  
-   
-
       <span className="UnitName">簡介</span>
       <table id="profile">
         <tbody>
@@ -118,8 +115,9 @@ class Page extends React.Component {
 
       <span className="UnitName">特別感謝</span>
       <div id="copyright" className="LsatSpace">
-          Art Design Assistance: ZMA<br/>
-          Reference: <a href="https://www.youtube.com/watch?v=EVXkphT70Mo" target="_blank">SayMaxWell - Danganronpa Theme [Remix]</a>
+          <span>Art Design Assistance: ZMA</span>
+          <span>Music: Detroit Swindle - Yes No Maybe (feat. Tom Misch)</span>
+          <span>Layout Reference: <a href="https://www.youtube.com/watch?v=EVXkphT70Mo" target="_blank">SayMaxWell - Danganronpa Theme [Remix]</a></span>
       </div>
       </div>
     );

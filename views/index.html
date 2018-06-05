@@ -9,12 +9,11 @@
     <script src="lib/less.min.js"></script>
     <script src="lib/jquery-3.3.1.min.js"></script>
     <script src="lib/d3.v3.min.js"></script>
-
     <script src="lib/react.development.js"></script>
     <script src="lib/react-dom.development.js"></script>
     <script src="lib/babel.min.js"></script>
     <script src="lib/axios.min.js"></script>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="lib/fontawesome.css">
     <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
 </head>
 <body>
@@ -46,7 +45,7 @@
 
 <h1 id="PageTitle"></h1>
 
-<audio id="audioElement" src="平茸 - Prismatic.mp3"></audio>
+<audio id="audioElement" src="Detroit Swindle - Yes No Maybe (feat. Tom Misch).mp3"></audio>
 
 <script src="music.js" charset="utf-8"></script>
 </body>
@@ -54,7 +53,7 @@
 $(document).ready(function(){
 
 const song = document.getElementById('audioElement');
-      //song.play();
+      song.play();
 
     $( "#MusicBar" ).click(function() {
         if(song.paused) song.play();
@@ -69,7 +68,7 @@ const MenuItR = 2.2; //2.2
 
 //initialization
 let vh
-let layerDeep = []; const fix = [0.055, 0.08, 0.328, 0.600, 0.78]; //RWD 
+let layerDeep = []; const fix = [0.055, 0.10, 0.310, 0.595, 0.8]; //RWD 
 let layerNow = -1;
 let layerIndex;
 setOption('', layerED);
