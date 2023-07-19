@@ -1,7 +1,8 @@
 # Ozen's personal website (2018)
-Because studying master I stopped learning web technology for two years.
+
+I took a break from studying web technology two years cause I am doing a master's degree.
 After leaving school I investigated the most popular web trend in 2018.
-And use them to make my new personal webpage. By the way as a practice.
+Final I use these skills to build my new personal webpage, by the way as a practice.
 
 ## Using technology
  * React.js + Babel (ES6)
@@ -11,6 +12,3 @@ And use them to make my new personal webpage. By the way as a practice.
 
 ## node modules
  * express 4.16.3
-
-**Notice! This repository does not include node_modules.**
-
